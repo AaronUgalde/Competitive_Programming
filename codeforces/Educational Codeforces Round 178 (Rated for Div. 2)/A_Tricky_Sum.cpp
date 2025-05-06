@@ -1,12 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-#define endl '\n'
-#define all(x) (x).begin(), (x).end()
 
 
 void solve(int testcase){
-
+    ll n; cin >> n;
+    ll ans = (n + 1) * n / 2; 
+    for(int mask = 1; mask <= n; mask <<= 1){
+        ans -= 2*mask;
+    }
+    cout << ans << '\n';
 }
 
 int main(){

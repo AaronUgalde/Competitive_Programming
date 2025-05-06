@@ -1,12 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-#define endl '\n'
-#define all(x) (x).begin(), (x).end()
 
 
 void solve(int testcase){
-
+    int a, b, c; cin >> a >> b >> c;
+    c -= b - a;
+    if(c >= b)
+        cout << ((c - b) % 3 == 0 ? "YES\n" : "NO\n");
+    else
+        cout << "NO\n";
 }
 
 int main(){
