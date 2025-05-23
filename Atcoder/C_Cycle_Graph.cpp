@@ -4,38 +4,30 @@ using namespace std;
 #define endl '\n'
 #define all(x) (x).begin(), (x).end()
 
-const int
+const int MAXN = 2e5;
+int n;
+vector<int> adj[MAXN];
+vector<bool> vis(MAXN, false);
 
-vector<int> adj[]
+void dfs(int start){
+    vis[start] = true;
+    for(auto &neigh : adj[start]){
+        if(!vis[neigh]) dfs(neigh);
+    }
+}
 
 void solve(int testcase){
-    int n, m; cin >> n >> m;
-    vector<vector<int>> adj(n);
+    int m; cin >> n >> m;
     for(int i = 0; i<m; i++){
         int u, v; cin >> u >> v;
         u--; v--;
-        if(adj[u] != -1 || adj[v] != -1){
-            cout << "No" << endl;
-            return;
-        }
-        adj[u] = v;
-        adj[v] = u;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
     }
 
-    int actual = 0;
-    vector<bool> vis(n, false);
+    dfs(0);
     for(int i = 0; i<n; i++){
-        vis[actual] = true;
-        actual = adj[actual];
-    }
-
-    if(actual != 0){
-        cout << "No" << endl;
-        return;
-    }
-
-    for(int i = 0; i<n; i++){
-        if(vis[i] != true){
+        if(adj[i].size() != 2 || !vis[i]){
             cout << "No" << endl;
             return;
         }
