@@ -1,31 +1,5 @@
 {
     "files.associations": {
-        "iostream": "cpp",
-        "iosfwd": "cpp",
-        "chrono": "cpp",
-        "span": "cpp",
-        "array": "cpp",
-        "deque": "cpp",
-        "forward_list": "cpp",
-        "list": "cpp",
-        "string": "cpp",
-        "unordered_map": "cpp",
-        "unordered_set": "cpp",
-        "vector": "cpp",
-        "string_view": "cpp",
-        "format": "cpp",
-        "generator": "cpp",
-        "initializer_list": "cpp",
-        "ranges": "cpp",
-        "stacktrace": "cpp",
-        "text_encoding": "cpp",
-        "regex": "cpp",
-        "valarray": "cpp",
-        "iomanip": "cpp",
-        "ostream": "cpp",
-        "numeric": "cpp",
-        "random": "cpp",
-        "limits": "cpp"
-    },
-    "C_Cpp.default.compilerPath": "C:/msys64/ucrt64/bin/g++.exe"
+        "iostream": "cpp"
+    }
 }
