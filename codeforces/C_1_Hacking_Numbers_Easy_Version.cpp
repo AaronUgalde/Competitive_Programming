@@ -1,43 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long
-#define endl '\n'
+using ll = long long;
 #define all(x) (x).begin(), (x).end()
-
-int send_cmd(const string &cmd) {
-    cout << cmd << endl;
-    cout.flush();
-    int res;
-    if (!(cin >> res) || res == -1) {
-        exit(0);
-    }
-    return res;
-}
-
-int add_cmd(ll y) {
-    return send_cmd("add " + to_string(y));
-}
-
-int mul_cmd(ll y) {
-    return send_cmd("mul " + to_string(y));
-}
-
-int div_cmd(ll y) {
-    return send_cmd("div " + to_string(y));
-}
-
-int digit_cmd() {
-    return send_cmd("digit");
-}
-
-int answer() {
-    return send_cmd("!");
-}
-
+#define sz(x) int((x).size())
 
 void solve(int testcase){
     ll n; cin >> n;
-
+    int ans;
+    cout << "mul 9" << endl;
+    cin >> ans;
+    cout << "digit" << endl;
+    cin >> ans;
+    if(n != 9){
+        cout << "add " <<  n-9 << endl;
+        cin >> ans;
+        cout << "!" << endl;
+        cin >> ans;
+    }
+    if(!ans){
+        cout << "digit" << endl;
+        cin >> ans;
+        if(n != 9){
+            cout << "add " <<  n-9 << endl;
+            cin >> ans;
+        }
+        cout << "!" << endl;
+        cin >> ans;
+    }
 }
 
 int main(){

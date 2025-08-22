@@ -6,15 +6,13 @@ using namespace std;
 
 
 void solve(int testcase){
-    int a, b; cin >> a >> b;
-    if(a == 1){
-        cout << b*b;
-    }else if(gcd(a, b) == 1){
-        cout << a*b;
+    ll a, b; cin >> a >> b;
+    if(b % a == 0){
+        ll p = b/a;
+        cout << (b * p) << endl;
     }else{
-        cout << b*(b/gcd(a, b));
+        cout << ((a*b)/gcd(a,b)) << endl;
     }
-    cout << endl;
 }
 
 int main(){

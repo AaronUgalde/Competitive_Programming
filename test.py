@@ -1,5 +1,4 @@
-def test(n):
-    for i in range(n):
-        print(i, ' ', n-i);
+a = "aeiouaeeiouaeaiouaeaeouaeaeiuaeaeioaeaeioueaeiouaaeiouaeaeiouaeieiouaeiaiouaeiaeouaeiaeiuaeiaeioaeiaeioueiaeioua"
 
-test(15)
+print(len(a))
+
