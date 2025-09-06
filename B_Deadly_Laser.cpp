@@ -6,7 +6,14 @@ using ll = long long;
 #define sz(x) int((x).size())
 
 void solve(int testcase){
+    int n, m, x, y, d; cin >> n >> m >> x >> y >> d;
     
+    if((x - d <= 1 || y + d >= m) && (x + d >= n || y - d <= 1)){
+        cout << -1 << endl;
+        return;
+    }
+
+    cout << n - 1 + m - 1 << endl; 
 }
 
 int main(){
