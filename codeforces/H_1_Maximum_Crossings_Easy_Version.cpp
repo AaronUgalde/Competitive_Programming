@@ -7,7 +7,18 @@ using ll = long long;
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
 void solve(int testcase){
-    
+    int n; cin >> n;
+    vector<int> A(n);
+    for(auto &a : A) cin >> a;
+
+    int ans = 0;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < i; j++){
+            if(A[j] >= A[i]) ans++;
+        }
+    }
+
+    cout << ans << endl;
 }
 
 int main(){

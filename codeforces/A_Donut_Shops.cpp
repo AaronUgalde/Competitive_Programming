@@ -7,7 +7,8 @@ using ll = long long;
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
 void solve(int testcase){
-    
+    int a, b, c; cin >> a >> b >> c;
+    cout << (a < c ? 1 : -1) << ' ' << (c / b < a ? b : -1) << endl;
 }
 
 int main(){
