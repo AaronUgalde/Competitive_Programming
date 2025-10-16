@@ -7,7 +7,16 @@ using ll = long long;
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
 void solve(int testcase){
-    
+    int n, m; cin >> n >> m;
+    n %= m;
+    int N = n / gcd(n, m);
+    int M = m / gcd(n, m);
+    if(__builtin_popcount(M) > 1){
+        cout << -1 << endl;
+        return;
+    }
+
+    cout << 1ll * __builtin_popcount(N) * m - n << endl;
 }
 
 int main(){
