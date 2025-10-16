@@ -22,21 +22,31 @@ void solve(int testcase){
 
         int operations = n;
         for(int i = 0; i < 2; i++) operations -= mx[i];
-        cout << "test: " << testcase << endl;
         cout << operations << endl;
         return;
     }
 
-    // if n % 2 != 0
-    /*
-    Tenemos que realizar el sufijo para pares e impares de cuantas veces aparece 
-    cada char en todo el arreglo sin contar el primero
+    vector<vector<int>> suf(2, vector<int>(26));
+    vector<vector<int>> pre(2, vector<int>(26));
+    for(int i = n - 1; i >= 0; i--){
+        suf[i % 2][s[i] - 'a']++;
+    }
+    int mx_mx_mx_equal = INT_MIN;
+    for(int i = 0; i < n; i++){
+        suf[i % 2][s[i] - 'a']--;
+        int mx_mx_equal = 0;
+        for(int j = 0; j < 2; j++){
+            int mx_equal = INT_MIN;
+            for(int k = 0; k < 26; k++){
+                mx_equal = max(mx_equal, pre[j][k] + suf[(j + 1) % 2][k]);
+            }
+            mx_mx_equal += mx_equal;
+        }
+        mx_mx_mx_equal = max(mx_mx_mx_equal, mx_mx_equal);
+        pre[i % 2][s[i] - 'a']++;
+    }
 
-    Construir el prefijo mientras vamos probando todas las posibilidades de 
-    eliminacion
-
-    Actualizar el maximo iterando sobre todos los caracteres
-    */
+    cout << n - mx_mx_mx_equal << endl;
 }
 
 int main(){
