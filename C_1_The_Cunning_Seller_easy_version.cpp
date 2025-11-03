@@ -8,7 +8,6 @@ using ull = unsigned long long;
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
 void solve(int testcase){
-<<<<<<< HEAD
     int n; cin >> n;
     ll sum = 0;
     int cnt = 0;
@@ -21,29 +20,6 @@ void solve(int testcase){
     }
 
     cout << sum << endl;
-=======
-    int h, n; cin >> h >> n;
-    vector<int> A(n);
-    vector<int> C(n);
-    for(int &a : A) cin >> a;
-    for(int &c : C) cin >> c;
-
-    set<pair<ll, ll>> S;
-    for(int i = 0; i < n; i++){
-        S.insert({1, i});
-    }
-
-    ll last_turn = 1;
-    while(h > 0){
-        auto [turn, index] = *S.begin();
-        S.erase(S.begin());
-        last_turn = turn;
-        h -= A[index];
-        S.insert({turn + C[index], index});
-    }
-
-    cout << last_turn << endl;
->>>>>>> d0f92e6e138e54015fb81c8d70b3f339a22d1081
 }
 
 int main(){
