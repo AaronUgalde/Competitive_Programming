@@ -7,27 +7,23 @@ using ull = unsigned long long;
 #define sz(x) int((x).size())
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
-ll gauss(ll n){
-    return n * (n + 1) / 2;
-}
-
 void solve(int testcase){
-    ll k;
-    cin >> k;
-    ll cur = 9, len = 1;
-    while (k - cur * len > 0) {
-        k -= cur * len;
-        cur *= 10;
-        len++;
+    int n, x; cin >> n >> x;
+    x--;
+    vector<vector<int>> adj(n);
+    for(int i = 0; i < n - 1; i++){
+        int u, v; cin >> u >> v;
+        u--; v--;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
     }
-    string s = to_string(cur / 9 + (k - 1) / len);
-    ll ans = 0;
-    for (int i = 0; i < (k - 1) % len + 1; i++)
-        ans += s[i] - '0';
 
-    for(int i = 0; i < len; i++){
-        
+    if(sz(adj[x]) <= 1){
+        cout << "Ayush" << endl;
+        return;
     }
+
+    cout << (n % 2 == 0 ? "Ayush" : "Ashish") << endl;
 }
 
 int main(){
