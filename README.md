@@ -23,8 +23,3 @@ Para optimizar mi flujo de trabajo durante las competencias, utilizo las siguien
 
 Soy un entusiasta de la resolución de problemas y la programación competitiva. Puedes ver mi perfil en las siguientes plataformas:
 
--   **Codeforces:** `TuHandle`
--   **AtCoder:** `TuHandle`
--   **CSES:** `TuHandle`
-
-*(No olvides reemplazar `TuHandle` con tu nombre de usuario en cada plataforma).*
