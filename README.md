@@ -9,7 +9,7 @@ El contenido está organizado en carpetas, cada una representando una plataforma
 -   **/Atcoder/**: Soluciones para problemas de [AtCoder](https://atcoder.jp/).
 -   **/codeforces/**: Soluciones para problemas de [Codeforces](https://codeforces.com/).
 -   **/cses/**: Soluciones para problemas del [CSES Problem Set](https://cses.fi/problemset/).
--   **/tcmx2025/**: Preparación y problemas para el Torneo de Computación Mexicano 2025.
+-   **/tcmx2025/**: Preparación y problemas para el Training Camp MX 2025
 -   **/pending/**: Problemas que estoy resolviendo actualmente o que están en espera.
 
 ## Herramientas
