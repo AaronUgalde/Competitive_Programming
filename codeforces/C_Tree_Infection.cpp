@@ -9,11 +9,14 @@ using ull = unsigned long long;
 
 void solve(int testcase){
     int n; cin >> n;
-    for(int i = 1; i < n; i++){
-        cout << 1 << ' ' << i << endl;
+    map<int, int> bucket;
+    for(int i = 0; i < n - 1; i++){
+        int x; cin >> x;
+        bucket[x]++;
     }
-    cout << n << ' ' << n << endl;
-    cout << endl;
+
+    int injec = sz(bucket) + 1;
+    cout << injec + (n - injec) / 2 << endl;
 }
 
 int main(){
@@ -25,6 +28,3 @@ int main(){
         solve(i);
     }
 }
-
-
-//x x x
