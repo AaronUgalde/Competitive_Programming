@@ -8,24 +8,27 @@ using ull = unsigned long long;
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
 void solve(int testcase){
-    int n; cin >> n;
-    for(int i = 1; i <= n - 2; i++){
-        cout << i << ' ' << i << endl;
+    string s; cin >> s;
+    int n_pearls = 0, n_strings = 0;
+    for(auto &c : s){
+        if(c == 'o') n_pearls++;
+        else n_strings++;
     }
-    cout << n - 1 << ' ' << n << endl;
-    cout << n << ' ' << n << endl;
-    cout << endl;
+
+    if(n_pearls == 0){
+        cout << "YES" << endl;
+        return;
+    }
+
+    cout << (n_strings % n_pearls == 0 ? "YES" : "NO") << endl;
 }
 
 int main(){
     ios::sync_with_stdio(false); cin.tie(nullptr);
 
     int t = 1;
-    cin >> t;
+    //cin >> t;
     for(int i = 0; i<t; i++){
         solve(i);
     }
 }
-
-
-//x x x

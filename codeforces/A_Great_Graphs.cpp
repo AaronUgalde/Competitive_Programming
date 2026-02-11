@@ -8,13 +8,19 @@ using ull = unsigned long long;
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
 void solve(int testcase){
-    int n; cin >> n;
-    for(int i = 1; i <= n - 2; i++){
-        cout << i << ' ' << i << endl;
+    ll n; cin >> n;
+    vector<ll> D(n);
+    for(auto &d : D) cin >> d;
+    sort(all(D), greater<int>());
+
+    ll ans = D[0];
+    ll a_i = accumulate(D.begin(), D.end(), 0ll);
+    for(int i = 0; i < n; i++){
+        a_i -= D[i];
+        ans += a_i - (n - i - 1) * D[i];
     }
-    cout << n - 1 << ' ' << n << endl;
-    cout << n << ' ' << n << endl;
-    cout << endl;
+
+    cout << ans << endl;
 }
 
 int main(){
@@ -26,6 +32,3 @@ int main(){
         solve(i);
     }
 }
-
-
-//x x x

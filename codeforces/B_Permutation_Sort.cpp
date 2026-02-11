@@ -9,12 +9,26 @@ using ull = unsigned long long;
 
 void solve(int testcase){
     int n; cin >> n;
-    for(int i = 1; i <= n - 2; i++){
-        cout << i << ' ' << i << endl;
+    vector<int> A(n);
+    for(auto &a : A) cin >> a;
+
+    bool is_sorted = true;
+    for(int i = 0; i < n; i++){
+        if(A[i] != i + 1){
+            is_sorted = false;
+            break;
+        }
     }
-    cout << n - 1 << ' ' << n << endl;
-    cout << n << ' ' << n << endl;
-    cout << endl;
+
+    if(is_sorted){
+        cout << 0 << endl;
+    }else if(A[0] == 1 or A[n - 1] == n){
+        cout << 1 << endl;
+    }else if(A[0] != n or A[n - 1] != 1){
+        cout << 2 << endl;
+    }else{
+        cout << 3 << endl;
+    }
 }
 
 int main(){
@@ -26,6 +40,3 @@ int main(){
         solve(i);
     }
 }
-
-
-//x x x

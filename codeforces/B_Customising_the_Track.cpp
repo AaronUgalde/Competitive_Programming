@@ -9,12 +9,14 @@ using ull = unsigned long long;
 
 void solve(int testcase){
     int n; cin >> n;
-    for(int i = 1; i <= n - 2; i++){
-        cout << i << ' ' << i << endl;
-    }
-    cout << n - 1 << ' ' << n << endl;
-    cout << n << ' ' << n << endl;
-    cout << endl;
+    vector<int> A(n);
+    for(auto &a : A) cin >> a;
+
+    ll sum = accumulate(all(A), 0ll);
+
+    ll rem = sum % n;
+
+    cout << rem * (n - rem) << endl;
 }
 
 int main(){
@@ -26,6 +28,3 @@ int main(){
         solve(i);
     }
 }
-
-
-//x x x

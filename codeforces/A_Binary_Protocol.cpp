@@ -9,23 +9,25 @@ using ull = unsigned long long;
 
 void solve(int testcase){
     int n; cin >> n;
-    for(int i = 1; i <= n - 2; i++){
-        cout << i << ' ' << i << endl;
+    string s; cin >> s;
+    int cnt = 0;
+    for(int i = 0; i < n; i++){
+        if(s[i] == '0'){
+            cout << cnt;
+            cnt = 0;
+            continue;
+        }
+        cnt++;
     }
-    cout << n - 1 << ' ' << n << endl;
-    cout << n << ' ' << n << endl;
-    cout << endl;
+    cout << cnt << endl;
 }
 
 int main(){
     ios::sync_with_stdio(false); cin.tie(nullptr);
 
     int t = 1;
-    cin >> t;
+    //cin >> t;
     for(int i = 0; i<t; i++){
         solve(i);
     }
 }
-
-
-//x x x

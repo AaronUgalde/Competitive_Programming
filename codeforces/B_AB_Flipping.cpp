@@ -9,12 +9,17 @@ using ull = unsigned long long;
 
 void solve(int testcase){
     int n; cin >> n;
-    for(int i = 1; i <= n - 2; i++){
-        cout << i << ' ' << i << endl;
+    string s; cin >> s;
+
+    int mx_b = -1;
+    int mn_a = -1;
+    for(int i = 0; i < n; i++){
+        if(s[i] == 'B') mx_b = i;
+        if(s[n - 1 - i] == 'A') mn_a = n - 1 - i;
     }
-    cout << n - 1 << ' ' << n << endl;
-    cout << n << ' ' << n << endl;
-    cout << endl;
+
+    
+    cout << (mx_b != -1 and mn_a != -1 and mn_a < mx_b ? mx_b - mn_a : 0) << endl;
 }
 
 int main(){
@@ -26,6 +31,3 @@ int main(){
         solve(i);
     }
 }
-
-
-//x x x

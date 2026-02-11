@@ -9,12 +9,22 @@ using ull = unsigned long long;
 
 void solve(int testcase){
     int n; cin >> n;
-    for(int i = 1; i <= n - 2; i++){
-        cout << i << ' ' << i << endl;
+    vector<int> A(n); 
+    for(auto &a : A) cin >> a;
+
+    int cnt = 2;
+
+    if(n % 2 != 0){
+        cout << cnt + 2 << endl;
+        cout << n - 1 << ' ' << n << endl;
+        cout << n - 1 << ' ' << n << endl;
+        cout << 1 << ' ' << n - 1 << endl;
+        cout << 1 << ' ' << n - 1 << endl;
+    }else{
+        cout << cnt << endl;
+        cout << 1 << ' ' << n << endl;
+        cout << 1 << ' ' << n << endl;
     }
-    cout << n - 1 << ' ' << n << endl;
-    cout << n << ' ' << n << endl;
-    cout << endl;
 }
 
 int main(){
@@ -26,6 +36,3 @@ int main(){
         solve(i);
     }
 }
-
-
-//x x x

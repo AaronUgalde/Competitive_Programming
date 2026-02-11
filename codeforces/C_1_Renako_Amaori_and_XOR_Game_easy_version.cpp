@@ -9,12 +9,23 @@ using ull = unsigned long long;
 
 void solve(int testcase){
     int n; cin >> n;
-    for(int i = 1; i <= n - 2; i++){
-        cout << i << ' ' << i << endl;
+    int x = 0;
+    vector<int> A(n);
+    for(auto &a : A) cin >> a, x ^= a;
+    vector<int> B(n);
+    for(auto &b : B) cin >> b, x ^= b;
+
+    if(x == 0){
+        cout << "Tie" << endl;
+        return;
     }
-    cout << n - 1 << ' ' << n << endl;
-    cout << n << ' ' << n << endl;
-    cout << endl;
+
+    for(int i = n - 1; i >= 0; i--){
+        if(A[i] != B[i]){
+            cout << (i % 2 == 0 ? "Ajisai" : "Mai") << endl;
+            return;
+        }
+    }
 }
 
 int main(){
@@ -26,6 +37,3 @@ int main(){
         solve(i);
     }
 }
-
-
-//x x x

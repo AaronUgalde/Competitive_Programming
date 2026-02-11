@@ -8,13 +8,24 @@ using ull = unsigned long long;
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
 void solve(int testcase){
-    int n; cin >> n;
-    for(int i = 1; i <= n - 2; i++){
-        cout << i << ' ' << i << endl;
+    int n, k; cin >> n >> k;
+    vector<int> B(n);
+    for(auto &b : B) cin >> b;
+
+    vector<bool> visited(n, false);
+    int i = n - 1;
+    while(k > 0 and !visited[i]){
+        visited[i] = true;
+        if(B[i] > n){
+            cout << "No" << endl;
+            return;
+        }
+        i -= B[i];
+        if(i < 0) i = n + i;
+        k--;
     }
-    cout << n - 1 << ' ' << n << endl;
-    cout << n << ' ' << n << endl;
-    cout << endl;
+
+    cout << "Yes" << endl;
 }
 
 int main(){
@@ -26,6 +37,3 @@ int main(){
         solve(i);
     }
 }
-
-
-//x x x

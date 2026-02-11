@@ -9,12 +9,19 @@ using ull = unsigned long long;
 
 void solve(int testcase){
     int n; cin >> n;
-    for(int i = 1; i <= n - 2; i++){
-        cout << i << ' ' << i << endl;
+    int ans = 0;
+    while(n >= 2){
+        int cards_needed = 2;
+        int h = 1;
+        while((cards_needed + 3 * (h + 1) - 1) <= n){
+            cards_needed += 3 * (h + 1) - 1;
+            h++;
+        }
+        n -= cards_needed;
+        ans++;
     }
-    cout << n - 1 << ' ' << n << endl;
-    cout << n << ' ' << n << endl;
-    cout << endl;
+
+    cout << ans << endl;
 }
 
 int main(){
@@ -26,6 +33,3 @@ int main(){
         solve(i);
     }
 }
-
-
-//x x x

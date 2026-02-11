@@ -8,13 +8,24 @@ using ull = unsigned long long;
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
 void solve(int testcase){
-    int n; cin >> n;
-    for(int i = 1; i <= n - 2; i++){
-        cout << i << ' ' << i << endl;
+    vector<string> grid(8);
+    for(auto &s : grid) cin >> s;
+
+    for(int i = 0; i < 8; i++){
+        bool all_red = true;
+        for(int j = 0; j < 8; j++){
+            if(grid[i][j] != 'R'){
+                all_red = false;
+                break;
+            }
+        }
+        if(all_red){
+            cout << "R" << endl;
+            return;
+        }
     }
-    cout << n - 1 << ' ' << n << endl;
-    cout << n << ' ' << n << endl;
-    cout << endl;
+
+    cout << "B" << endl;
 }
 
 int main(){
@@ -26,6 +37,3 @@ int main(){
         solve(i);
     }
 }
-
-
-//x x x

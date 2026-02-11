@@ -9,23 +9,29 @@ using ull = unsigned long long;
 
 void solve(int testcase){
     int n; cin >> n;
-    for(int i = 1; i <= n - 2; i++){
-        cout << i << ' ' << i << endl;
+    vector<int> A(n), B(n);
+    for(auto &a : A) cin >> a; 
+    for(auto &b : B) cin >> b;
+
+    ll total_a = accumulate(all(A), 0ll);
+    ll total_b = accumulate(all(B), 0ll);
+
+    sort(all(B));
+
+    if(B[n - 1] + B[n - 2] >= total_a){
+        cout << "YES" << endl;
+    }else{
+        cout << "NO" << endl;
     }
-    cout << n - 1 << ' ' << n << endl;
-    cout << n << ' ' << n << endl;
-    cout << endl;
+    
 }
 
 int main(){
     ios::sync_with_stdio(false); cin.tie(nullptr);
 
     int t = 1;
-    cin >> t;
+    //cin >> t;
     for(int i = 0; i<t; i++){
         solve(i);
     }
 }
-
-
-//x x x

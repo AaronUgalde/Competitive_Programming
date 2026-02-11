@@ -8,24 +8,28 @@ using ull = unsigned long long;
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
 void solve(int testcase){
-    int n; cin >> n;
-    for(int i = 1; i <= n - 2; i++){
-        cout << i << ' ' << i << endl;
+    int n, k; cin >> n >> k;
+    vector<double> A(n);
+    for(auto &a : A) cin >> a;
+
+    double mx = INT_MIN;
+    for(int i = 0; i < n; i++){
+        double curr = 0;
+        for(int j = i; j < n; j++){
+            curr += A[j];
+            if(j - i + 1 >= k) mx = max(mx, curr / (j - i + 1));
+        }
     }
-    cout << n - 1 << ' ' << n << endl;
-    cout << n << ' ' << n << endl;
-    cout << endl;
+
+    cout << setprecision(15) << fixed << mx << endl;
 }
 
 int main(){
     ios::sync_with_stdio(false); cin.tie(nullptr);
 
     int t = 1;
-    cin >> t;
+    //cin >> t;
     for(int i = 0; i<t; i++){
         solve(i);
     }
 }
-
-
-//x x x

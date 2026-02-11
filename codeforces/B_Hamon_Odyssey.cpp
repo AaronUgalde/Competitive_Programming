@@ -9,12 +9,20 @@ using ull = unsigned long long;
 
 void solve(int testcase){
     int n; cin >> n;
-    for(int i = 1; i <= n - 2; i++){
-        cout << i << ' ' << i << endl;
+    vector<int> A(n);
+    for(auto &a : A) cin >> a;
+
+    int ans = 0;
+    int curr_strength = INT_MAX;
+    for(int i = 0; i < n; i++){
+        curr_strength &= A[i];
+        if(curr_strength == 0){
+            ans++;
+            curr_strength = INT_MAX;
+        }
     }
-    cout << n - 1 << ' ' << n << endl;
-    cout << n << ' ' << n << endl;
-    cout << endl;
+
+    cout << max(ans, 1) << endl;
 }
 
 int main(){
@@ -26,6 +34,3 @@ int main(){
         solve(i);
     }
 }
-
-
-//x x x

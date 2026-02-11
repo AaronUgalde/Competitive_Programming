@@ -9,12 +9,16 @@ using ull = unsigned long long;
 
 void solve(int testcase){
     int n; cin >> n;
-    for(int i = 1; i <= n - 2; i++){
-        cout << i << ' ' << i << endl;
+    vector<ll> A(n);
+    for(auto &a : A) cin >> a;
+    sort(all(A));
+
+    ll g = 0;
+    for(int i = 1; i < n; i++){
+        if(A[i] % A[0] == 0) g = gcd(g, A[i]);
     }
-    cout << n - 1 << ' ' << n << endl;
-    cout << n << ' ' << n << endl;
-    cout << endl;
+
+    cout << (g == A[0] ? "Yes" : "No") << endl;
 }
 
 int main(){
@@ -26,6 +30,3 @@ int main(){
         solve(i);
     }
 }
-
-
-//x x x

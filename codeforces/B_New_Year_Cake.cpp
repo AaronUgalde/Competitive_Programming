@@ -7,14 +7,20 @@ using ull = unsigned long long;
 #define sz(x) int((x).size())
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
-void solve(int testcase){
-    int n; cin >> n;
-    for(int i = 1; i <= n - 2; i++){
-        cout << i << ' ' << i << endl;
+int layers(int a, int b){
+    int layers = 1;
+    int k = 1;
+    while(k <= (layers % 2 == 0 ? a : b)){
+        (layers % 2 == 0 ? a : b) -= k;
+        layers++;
+        k *= 2;
     }
-    cout << n - 1 << ' ' << n << endl;
-    cout << n << ' ' << n << endl;
-    cout << endl;
+    return layers - 1;
+}
+
+void solve(int testcase){
+    int a, b; cin >> a >> b;
+    cout << max(layers(a, b), layers(b, a)) << endl;
 }
 
 int main(){
@@ -26,6 +32,3 @@ int main(){
         solve(i);
     }
 }
-
-
-//x x x
