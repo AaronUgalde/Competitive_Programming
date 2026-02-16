@@ -26,26 +26,20 @@ void solve(int testcase){
         sf[i].second = max(sf[i + 1].second, down[i]);
     }
 
-    int max_ll = 1;
-    int min_rl = 2 * n;
-    int max_lr = 1;
-    int min_rr = 2 * n;
+    ll ans = 0;
+    int last_l = 0;
+    int last_r = 2 * n + 1;
     for(int i = 0; i < n; i++){
         int l = min(pf[i + 1].first, sf[i].first);
         int r = max(pf[i + 1].second, sf[i].second);
-        if(l > max_ll){
-            max_ll = l;
-            min_rl = r;
-        }
-        if(r < min_rr){
-            max_lr = l;
-            min_rr = r;
-        }
+        ans += 1ll * l * (2 * n - r + 1);
+        ans -= 1ll * min(l, last_l) * (2 * n - max(r, last_r) + 1);    
+        last_l = l;
+        last_r = r;  
     }
 
     
-    cout << "max_l: " << max_l << endl;
-    cout << max_l * (2 * n - min_r + 1) << endl;
+    cout << ans << endl;
 
 }
 
