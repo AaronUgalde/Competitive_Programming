@@ -43,9 +43,7 @@ void solve(int testcase){
         }
     }
 
-    
-    cout << "max_l: " << max_l << endl;
-    cout << max_l * (2 * n - min_r + 1) << endl;
+    cout << max_ll * (n - max_lr + 1) + max_lr * (n - (min_rl - min_rr) + 1)<< endl;
 
 }
 
