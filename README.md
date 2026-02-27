@@ -19,7 +19,4 @@ Para optimizar mi flujo de trabajo durante las competencias, utilizo las siguien
 -   `template.cpp`: Una plantilla de C++ con macros, funciones de I/O rápido y estructuras de datos comunes que me permite empezar a codificar más rápidamente.
 -   `test.py`: Un script de Python para probar mis soluciones contra casos de prueba locales de manera automatizada, verificando la correctitud antes del envío.
 
-## Sobre Mí
-
-Soy un entusiasta de la resolución de problemas y la programación competitiva. Puedes ver mi perfil en las siguientes plataformas:
 
