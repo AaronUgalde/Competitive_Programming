@@ -38,8 +38,12 @@ void solve(int testcase){
         last_r = r;  
     }
 
+<<<<<<< HEAD
+    cout << max_ll * (n - max_lr + 1) + max_lr * (n - (min_rl - min_rr) + 1)<< endl;
+=======
     
     cout << ans << endl;
+>>>>>>> 2a062ec5ccec922292399810c29429212140cbe3
 
 }
 
