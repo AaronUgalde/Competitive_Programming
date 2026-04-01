@@ -12,9 +12,15 @@ void solve(){
     vector<int> A(n);
     for(auto &a : A) cin >> a;
 
-    int mn = *min_element(all(A));
+    ll l = 0, r = accumulate(all(A), 0ll);
+    ll ans = INT_MIN;
+    for(int i = 0; i < n - 1; i++){
+        l += A[i];
+        r -= A[i];
+        ans = max(ans, gcd(l, r));
+    }
 
-    cout << (mn == A[0] ? "Bob" : "Alice") << endl;
+    cout << ans << endl;
 }
 
 int main(){

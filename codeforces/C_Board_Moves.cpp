@@ -9,12 +9,12 @@ using ull = unsigned long long;
 
 void solve(){
     int n; cin >> n;
-    vector<int> A(n);
-    for(auto &a : A) cin >> a;
+    ll ans = 0;
+    for(ll i = 0, cells = 0; i <= n / 2; i++, cells += 8){
+        ans += cells * i;
+    }
 
-    int mn = *min_element(all(A));
-
-    cout << (mn == A[0] ? "Bob" : "Alice") << endl;
+    cout << ans << endl;
 }
 
 int main(){

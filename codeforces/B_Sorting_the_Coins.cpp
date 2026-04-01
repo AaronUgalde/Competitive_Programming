@@ -9,19 +9,29 @@ using ull = unsigned long long;
 
 void solve(){
     int n; cin >> n;
-    vector<int> A(n);
-    for(auto &a : A) cin >> a;
+    vector<int> A(n, 0);
 
-    int mn = *min_element(all(A));
-
-    cout << (mn == A[0] ? "Bob" : "Alice") << endl;
+    int ans = 1;
+    int j = n - 1;
+    cout << 1 << ' ';
+    for(int i = 0; i < n; i++){
+        int p; cin >> p, p--;
+        A[p] = 1;
+        ans++;
+        while(A[j] == 1 and j >= 0){
+            ans--;
+            j--;
+        }
+        cout << ans << ' ';
+    }
+    cout << endl;
 }
 
 int main(){
     ios::sync_with_stdio(false); cin.tie(nullptr);
 
     int t = 1;
-    cin >> t;
+    //cin >> t;
     for(int i = 0; i<t; i++){
         solve();
     }

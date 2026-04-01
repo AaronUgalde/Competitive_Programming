@@ -8,7 +8,27 @@ using ull = unsigned long long;
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
 void solve(){
+    ll n; cin >> n;
+
+    ll l = 0, r = 1e9;
     
+    auto check = [&](ll m){
+        ll a = 2 * m + 1;
+        ll b = (a * a - 1) / 2;
+        ll c = a * a - b;
+        return c <= n;
+    };
+    
+    while(r - l > 1){
+        ll m = midpoint(l, r);
+        if(check(m)){
+            l = m;
+        }else{
+            r = m;
+        }
+    }
+
+    cout << l << endl;
 }
 
 int main(){
