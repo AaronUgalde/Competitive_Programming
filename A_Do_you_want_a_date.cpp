@@ -33,11 +33,11 @@ void solve(){
     sort(all(X));
     ll ans = 0;
     for(int i = 0; i < n - 1; i++){
-        ans = mod((ans - X[i] * (modexp(2, n - i - 1) - 1)) % MOD, MOD);
+        ans = mod((ans - 1ll * X[i] * (modexp(2, n - i - 1) - 1)) % MOD, MOD);
     }
 
     for(int i = 0; i < n - 1; i++){
-        ans = mod((ans + X[n - i - 1] * (modexp(2, n - i - 1) - 1)) % MOD, MOD);
+        ans = mod((ans + 1ll * X[n - i - 1] * (modexp(2, n - i - 1) - 1)) % MOD, MOD);
     }
 
     cout << ans << endl;
