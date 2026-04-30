@@ -8,13 +8,21 @@ using ull = unsigned long long;
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
 void solve(){
-    int n; cin >> n;
+    int n, m, k; cin >> n >> m >> k;
     vector<int> A(n);
     for(auto &a : A) cin >> a;
 
-    int mn = *min_element(all(A));
+    sort(all(A));
+    ll ans = 0;
+    for(int i = 0; i < n and k > 0; i++){
+        int new_k = max(0, k - m);
+        int bought = k - new_k;
+        ans += 1ll * A[i] * bought;
+        ans += 1ll * bought * new_k;
+        k = new_k;
+    }
 
-    cout << (mn == A[0] ? "Bob" : "Alice") << endl;
+    cout << ans << endl;
 }
 
 int main(){

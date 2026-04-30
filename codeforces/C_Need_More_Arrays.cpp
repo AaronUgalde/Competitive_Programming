@@ -12,9 +12,16 @@ void solve(){
     vector<int> A(n);
     for(auto &a : A) cin >> a;
 
-    int mn = *min_element(all(A));
+    int j = 0;
+    int ans = 0;
+    for(int i = 1; i < n; i++){
+        if(A[j] + 1 < A[i]){
+            ans++;
+            j = i;
+        }
+    }
 
-    cout << (mn == A[0] ? "Bob" : "Alice") << endl;
+    cout << ans + 1 << endl;
 }
 
 int main(){

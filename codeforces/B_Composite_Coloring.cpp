@@ -12,9 +12,7 @@ void solve(){
     vector<int> A(n);
     for(auto &a : A) cin >> a;
 
-    int mn = *min_element(all(A));
-
-    cout << (mn == A[0] ? "Bob" : "Alice") << endl;
+    cout << 1000 / log
 }
 
 int main(){

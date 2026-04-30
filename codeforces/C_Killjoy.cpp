@@ -8,13 +8,20 @@ using ull = unsigned long long;
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
 void solve(){
-    int n; cin >> n;
+    int n, x; cin >> n >> x;
     vector<int> A(n);
     for(auto &a : A) cin >> a;
 
-    int mn = *min_element(all(A));
+    int balance = 0;
+    bool all_x = true;
+    bool one_x = false;
+    for(auto &a : A){
+        if(a != x) all_x = false;
+        else one_x = true;
+        balance += x - a;
+    }
 
-    cout << (mn == A[0] ? "Bob" : "Alice") << endl;
+    cout << (all_x ? 0 : balance == 0 or one_x ? 1 : 2) << endl;
 }
 
 int main(){

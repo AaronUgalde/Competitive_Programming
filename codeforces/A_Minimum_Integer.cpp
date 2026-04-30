@@ -8,13 +8,9 @@ using ull = unsigned long long;
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
 void solve(){
-    int n; cin >> n;
-    vector<int> A(n);
-    for(auto &a : A) cin >> a;
+    int l, r, d; cin >> l >> r >> d;
 
-    int mn = *min_element(all(A));
-
-    cout << (mn == A[0] ? "Bob" : "Alice") << endl;
+    cout << (d >= l and d <= r ? r + d - r % d : d) << endl;
 }
 
 int main(){

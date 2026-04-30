@@ -9,12 +9,13 @@ using ull = unsigned long long;
 
 void solve(){
     int n; cin >> n;
-    vector<int> A(n);
-    for(auto &a : A) cin >> a;
+    map<int, int> bucket;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        bucket[x]++;
+    }
 
-    int mn = *min_element(all(A));
-
-    cout << (mn == A[0] ? "Bob" : "Alice") << endl;
+    cout << bucket[1] + bucket[3] << endl; 
 }
 
 int main(){

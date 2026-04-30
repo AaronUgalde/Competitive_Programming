@@ -9,12 +9,22 @@ using ull = unsigned long long;
 
 void solve(){
     int n; cin >> n;
-    vector<int> A(n);
-    for(auto &a : A) cin >> a;
+    map<int, int> mp;
+    for(int i = 0; i < n - 1; i++){
+        int u, v; cin >> u >> v; u--; v--;
+        mp[u]++;
+        mp[v]++;
+    }
 
-    int mn = *min_element(all(A));
-
-    cout << (mn == A[0] ? "Bob" : "Alice") << endl;
+    bool more_than_two = false;
+    for(auto &[u, cnt] : mp){
+        if(cnt > 2 and more_than_two == false){
+            more_than_two = true;
+        }else if(cnt > 2 and more_than_two == true){
+            cout << "No" << endl;
+            return;
+        }
+    }
 }
 
 int main(){

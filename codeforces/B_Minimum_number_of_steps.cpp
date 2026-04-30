@@ -7,21 +7,30 @@ using ull = unsigned long long;
 #define sz(x) int((x).size())
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
+const int MOD = 1e9 + 7;
+
 void solve(){
-    int n; cin >> n;
-    vector<int> A(n);
-    for(auto &a : A) cin >> a;
+    string s; cin >> s;
+    reverse(all(s));
+    ll n = sz(s);
+    ll cnt = 0;
+    ll ans = 0;
+    for(int i = 0; i < n; i++){
+        if(s[i] == 'b') cnt++;
+        else{
+            ans = (ans + cnt) % MOD;
+            cnt = (cnt * 2) % MOD;
+        }
+    }
 
-    int mn = *min_element(all(A));
-
-    cout << (mn == A[0] ? "Bob" : "Alice") << endl;
+    cout << ans << endl;
 }
 
 int main(){
     ios::sync_with_stdio(false); cin.tie(nullptr);
 
     int t = 1;
-    cin >> t;
+    //cin >> t;
     for(int i = 0; i<t; i++){
         solve();
     }

@@ -7,14 +7,28 @@ using ull = unsigned long long;
 #define sz(x) int((x).size())
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
+int mod(int x, int y){
+    int result = x % y;
+    if (result < 0) result += y;
+    return result;
+}
+
 void solve(){
     int n; cin >> n;
     vector<int> A(n);
     for(auto &a : A) cin >> a;
 
-    int mn = *min_element(all(A));
+    vector<bool> occuped(n, false);
+    for(int i = 0; i < n; i++){
+        int new_room = mod(i + A[i], n);
+        if(occuped[new_room]){
+            cout << "NO" << endl;
+            return;
+        }
+        occuped[new_room] = true;
+    }
 
-    cout << (mn == A[0] ? "Bob" : "Alice") << endl;
+    cout << "YES" << endl;
 }
 
 int main(){

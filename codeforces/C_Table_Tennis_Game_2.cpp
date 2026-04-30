@@ -8,20 +8,17 @@ using ull = unsigned long long;
 #define dbg(x) (cerr << #x << " = " << (x) << '\n')
 
 void solve(){
-    int n; cin >> n;
-    vector<int> A(n);
-    for(auto &a : A) cin >> a;
-
-    int mn = *min_element(all(A));
-
-    cout << (mn == A[0] ? "Bob" : "Alice") << endl;
+    ll k, a, b; cin >> k >> a >> b;
+    ll win_a = a / k; a %= k;
+    ll win_b = b / k; b %= k;
+    cout << (a == 0 or b == 0 or (win_a and win_b) ? win_a + win_b : -1) << endl;
 }
 
 int main(){
     ios::sync_with_stdio(false); cin.tie(nullptr);
 
     int t = 1;
-    cin >> t;
+    //cin >> t;
     for(int i = 0; i<t; i++){
         solve();
     }
