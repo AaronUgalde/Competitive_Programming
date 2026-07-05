@@ -10,45 +10,28 @@ using ull = unsigned long long;
 void solve(){
     int even, odd;
     cin >> even >> odd;
-    
-    if(even > odd){
+
+    if((even + odd) % 2 == 0){
+        even--;
+    }else{
+        odd--;
+    }
+
+    if(min(even, odd) < 0 || even > odd){
         cout << "NO" << endl;
         return;
     }
 
-    if(even == 0){
-        if(odd % 2 == 0){
-            cout << "NO" << endl;
-            return;
-        }
-        cout << "YES" << endl;
-        for(int i = 2; i <= odd; i++){
-            cout << 1 << ' ' << i << endl;
-        }
-        return;
-    }
-
     cout << "YES" << endl;
-    int i = 2;
-    if((odd - even) % 2 == 0){
-        cout << 1 << ' ' << 2 << endl;
-        even--;
-        i++;
+
+    int current = 2;
+    for(int i = 0; i < even; i++, current += 2, odd--){
+        cout << current << ' ' << current + 1 << endl;
+        cout << 1 << ' ' << current << endl;
     }
 
-    odd--;
-    while(even > 0){
-        cout << i << ' ' << i + 1 << endl;
-        cout << 1 << ' ' << i << endl;
-        even--;
-        odd--;
-        i += 2;
-    }
-
-    while(odd > 0){
-        cout << 1 << ' ' << i << endl;
-        odd--;
-        i++;
+    for(int i = 0; i < odd; i++, current++){
+        cout << 1 << ' ' << current << endl;
     }
 }
 
